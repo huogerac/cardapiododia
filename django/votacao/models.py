@@ -23,11 +23,20 @@ class Cardapio(models.Model):
 
 	def __unicode__(self):
 		return self.dia
-        
+
 class Votacao(models.Model):
-	restaurante = models.ForeignKey(Restaurante)
 	data = models.DateTimeField(auto_now_add=True)
 	nome = models.CharField(max_length=64)
+	dia = models.CharField(max_length=32, choices=DIAS)
+	
+	def __unicode__(self):
+		return self.nome
+        
+class Voto(models.Model):
+	nome = models.CharField(max_length=64)
+	restaurante = models.ForeignKey(Restaurante)
+	votacao = models.ForeignKey(Votacao)
     
 	def __unicode__(self):
 		return self.nome
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="author" content="Roger.Camargo">
+		<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css"%}" />	
+	</head>
+	
+	<body>
+		
+		<div class="navbar navbar-fixed-top">
+	      <div class="navbar-inner">
+	        <div class="container">
+	          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </a>
+	          <a class="brand" href="#">Cardapio do dia</a>
+	          <div class="nav-collapse">
+	            <ul class="nav">
+	              <li class="active"><a href="">Admin</a></li>
+	              <li><a href="admin">Votacao</a></li>
+	              <li><a href="#about">About</a></li>
+	            </ul>
+	          </div><!--/.nav-collapse -->
+	        </div>
+	      </div>
+	    </div>	
+		
+		<div class="container-fluid">
+			<br /><br /><br />
+			
+			{% block corpo %}
+			<!-- body -->
+			{% endblock %}
+			
+			<br /><br /><br />
+			<hr>	
+		    <footer>
+		    	<p>&copy; Copyleft 2012</p>
+		    </footer>			
+		
+		</div>
+		
+		<!-- javascript -->
+		<!--
+			Django JQuery
+		<script type="text/javascript" src="/static/admin/js/jquery.js"></script>
+		<script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+		-->
+		<script type='text/javascript' src="{% static 'js/jquery-1.7.1.js'%}"></script>
+		<script type="text/javascript" src="{% static 'js/bootstrap.min.js'%}"></script>
+		
+		{% block javascript %}
+		<!--  extra javascript-->		
+		{% endblock %}
+		
+	</body>
+
+</html>
