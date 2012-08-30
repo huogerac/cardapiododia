@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block chamada %}TESTE{% endblock %}
+
+{% block corpo %}
+
+    <table>
+      <tr><th>dias</th></tr>
+      <tr><td>
+        <select id="selection">
+          {% for dia in object_list %}
+             <option value="{{dia.id}}">{{dia.nome}}</option>
+          {% endfor %}
+        </select>
+      </td></tr>
+    </table>
+	
+	
+	
+
+{% endblock corpo %}
+
+{% block javascript %}
+{% endblock javascript %}
