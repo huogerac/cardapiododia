@@ -33,6 +33,8 @@ PREPARANDO O AMBIENTE (APENAS UMA VEZ):
     
     #criar base de dados (SQLITE)
     ./manage.py syncdb
+    ./manage.py loaddata cardapiododia/fixtures/Restaurante.json
+    ./manage.py loaddata cardapiododia/fixtures/Cardapio.json
     
     #rodar aplicação
     ./manage.py runserver
