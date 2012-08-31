@@ -4,16 +4,25 @@
 
 {% block corpo %}
 
-    <table>
-      <tr><th>dias</th></tr>
-      <tr><td>
-        <select id="selection">
-          {% for dia in object_list %}
-             <option value="{{dia.id}}">{{dia.nome}}</option>
-          {% endfor %}
-        </select>
-      </td></tr>
-    </table>
+
+    <section id="global">
+
+        <div class="page-header">
+             <h2>Nova votação</h2>
+        </div>
+        
+        <form action="" method="post"> {% csrf_token %}
+
+            {{ form }}
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Criar votação</button>
+                <a href="{% url url_votacao %}" class="btn">Cancelar</a>
+            </div>
+
+        </form>
+
+    </section>	
 	
 	
 	

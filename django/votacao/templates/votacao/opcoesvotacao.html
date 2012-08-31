@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block chamada %}VOTACAO{% endblock %}
+
+{% block corpo %}
+
+    <section id="global">
+
+        <div class="page-header">
+             <h2>{{ votacao.data }}</h2>
+             <h2>{{ votacao.nome }}</h2>
+             <h2>{{ votacao.dia }}</h2>
+        </div>
+        
+      {% for cardapio in cardapio_list %}
+         <li>{{cardapio.restaurante}} - {{cardapio.dia}}</li>
+         <img height="100" src="{{ MEDIA_URL }}{{ cardapio.cardapioDia }}" alt="" />
+      {% endfor %}
+
+    </section>	
+
+
+{% endblock corpo %}
+
+{% block javascript %}
+{% endblock javascript %}
