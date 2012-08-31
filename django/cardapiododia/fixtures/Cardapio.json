@@ -1,0 +1,47 @@
+[
+  {
+    "pk": 1, 
+    "model": "votacao.cardapio", 
+    "fields": {
+      "restaurante": 1, 
+      "cardapioDia": "cardapio/feijaonorte_seg.jpg", 
+      "dia": "segunda"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "votacao.cardapio", 
+    "fields": {
+      "restaurante": 1, 
+      "cardapioDia": "cardapio/feijaonorte_ter.jpg", 
+      "dia": "terca"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "votacao.cardapio", 
+    "fields": {
+      "restaurante": 1, 
+      "cardapioDia": "cardapio/feijaonorte_qua.jpg", 
+      "dia": "quarta"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "votacao.cardapio", 
+    "fields": {
+      "restaurante": 1, 
+      "cardapioDia": "cardapio/feijaonorte_qui.jpg", 
+      "dia": "quinta"
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "votacao.cardapio", 
+    "fields": {
+      "restaurante": 1, 
+      "cardapioDia": "cardapio/feijaonorte_sex.jpg", 
+      "dia": "sexta"
+    }
+  }
+]

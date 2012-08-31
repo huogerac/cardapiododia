@@ -9,34 +9,33 @@ DIAS = [
 ]
 
 class Restaurante(models.Model):
-	nome = models.CharField(max_length=128, db_index=True)
-	logotipo = models.FileField(upload_to='logotipo')
-
-	def __unicode__(self):
-		return self.nome  
+    nome = models.CharField(max_length=128, db_index=True)
+    logotipo = models.FileField(upload_to='logotipo')
+    cardapioGeral = models.FileField(upload_to='cardapio')
+    
+    def __unicode__(self):
+        return self.nome  
         
 class Cardapio(models.Model):
-	restaurante = models.ForeignKey(Restaurante)
-	dia = models.CharField(max_length=32, choices=DIAS)
-	cardapioDia = models.FileField(upload_to='cardapio')
-	cardapioGeral = models.FileField(upload_to='cardapio')
+    restaurante = models.ForeignKey(Restaurante)
+    dia = models.CharField(max_length=32, choices=DIAS)
+    cardapioDia = models.FileField(upload_to='cardapio')
 
-	def __unicode__(self):
-		return self.dia
+    def __unicode__(self):
+        return self.dia
 
 class Votacao(models.Model):
-	data = models.DateTimeField(auto_now_add=True)
-	nome = models.CharField(max_length=64)
-	dia = models.CharField(max_length=32, choices=DIAS)
+    data = models.DateTimeField(auto_now_add=True)
+    nome = models.CharField(max_length=64)
+    dia = models.CharField(max_length=32, choices=DIAS)
 	
-	def __unicode__(self):
-		return self.nome
+    def __unicode__(self):
+        return self.nome
         
 class Voto(models.Model):
-	nome = models.CharField(max_length=64)
-	restaurante = models.ForeignKey(Restaurante)
-	votacao = models.ForeignKey(Votacao)
+    nome = models.CharField(max_length=64)
+    restaurante = models.ForeignKey(Restaurante)
+    votacao = models.ForeignKey(Votacao)
     
-	def __unicode__(self):
-		return self.nome
-
+    def __unicode__(self):
+        return self.nome
