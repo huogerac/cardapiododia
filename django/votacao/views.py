@@ -30,7 +30,7 @@ def criar_votacao(request):
 
 def opcoes_votacao(request, id_votacao):
     votacao = get_object_or_404(Votacao, pk=id_votacao)
-    cardapios = Cardapio.objects.all()
+    cardapios = Cardapio.objects.filter(dia=votacao.dia)
     return render(request, 'votacao/opcoesvotacao.html', {'votacao': votacao, 'cardapio_list': cardapios})
     
     
