@@ -15,6 +15,7 @@
       {% for cardapio in cardapio_list %}
          <li>{{cardapio.restaurante}} - {{cardapio.dia}}</li>
          <img height="100" src="{{ MEDIA_URL }}{{ cardapio.cardapioDia }}" alt="" />
+         <img height="100" src="{{ MEDIA_URL }}{{ cardapio.restaurante.cardapioGeral }}" alt="" />
       {% endfor %}
 
     </section>	
