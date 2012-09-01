@@ -1,0 +1,22 @@
+{% load static %}
+<div id="sobre" class="modal hide fade">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<table>
+			<tr>
+				<td><img src="{% static 'img/gf.jpg' %}" width="50" height="70" /></td>
+				<td>
+					<h3>Cardápio do Dia</h3>
+					<h4>Versão 1.0</h4>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="modal-body">
+		<p>Desenvolvido por: Roger Camargo, Guilherme Gambeti e Rogério Avelino.</p>
+		<p>Bugs e Sugestoes: <a href="mailto:cardapiododia@email.com?Subject=Bugs%20Sugestões">cardapiododia@email.com</a></p>
+	</div>
+	<div class="modal-footer">
+		<a id="removeConteudoSobre" href="#" class="btn">Close</a>
+	</div>
+</div>
