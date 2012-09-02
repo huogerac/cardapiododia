@@ -9,6 +9,7 @@ from django.shortcuts import render, render_to_response, get_object_or_404
 from datetime import date, datetime, time
 
 from .models import Votacao, Cardapio
+from .forms import VotacaoModelForm
 
 def votacao(request):
     template_name = 'votacao/home.html'
@@ -17,26 +18,26 @@ def votacao(request):
 def sobre(request):
 	return render_to_response("votacao/sobre.html")    
     
-class VotacaoForm(forms.ModelForm):
-    class Meta:
-        model = Votacao
+
             
 def criar_votacao(request):
 
     if request.POST:
-        form = VotacaoForm(request.POST)
+        form = VotacaoModelForm(request.POST)
+        
         if form.is_valid():
             votacao = form.save()
+            
             return HttpResponseRedirect('/votacao/' + str(votacao.id))
     else:
 
         hoje = date.today()
         meiodia = datetime.combine(hoje, time(12, 00)) 
         nova_votacao = Votacao(dataDoAlmoco=meiodia)
-        
-        form = VotacaoForm(instance=nova_votacao)
-        form.fields['encerrada'].widget = HiddenInput()
-    
+        form = VotacaoModelForm(instance=nova_votacao)
+
+    form.fields['encerrada'].widget = HiddenInput()
+    form.fields['diaDaSemana'].widget = HiddenInput()
     payload = {'form':form }
     return render(request, 'votacao/criarvotacao.html', payload) 
 

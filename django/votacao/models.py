@@ -1,13 +1,17 @@
 # coding=utf-8
 
+from datetime import datetime
+
 from django.db import models
 
 DIAS_DA_SEMANA = [
-    ('segunda', 'Segunda-Feira'),
-    ('terca', 'Terca-Feira'),
-    ('quarta', 'Quarta-Feira'),
-    ('quinta', 'Quinta-Feira'),
-    ('sexta', 'Sexta-Feira'),
+    ('Monday', u'Segunda-Feira'),
+    ('Tuesday', u'Terça-Feira'),
+    ('Wednesday', u'Quarta-Feira'),
+    ('Thursday', u'Quinta-Feira'),
+    ('Friday', u'Sexta-Feira'),
+    ('Saturday', u'Sábado'),
+    ('Sunday', u'Domingo'),
 ]
 
 class Restaurante(models.Model):
@@ -30,7 +34,7 @@ class Votacao(models.Model):
     data = models.DateTimeField(auto_now_add=True)
     nome = models.CharField(max_length=64)
     dataDoAlmoco = models.DateTimeField(u'Data do almoço')
-    diaDaSemana = models.CharField(max_length=32, choices=DIAS_DA_SEMANA)
+    diaDaSemana = models.CharField(max_length=32, choices=DIAS_DA_SEMANA, blank=True)
     encerrada = models.BooleanField(default=False)
 	
     def __unicode__(self):
