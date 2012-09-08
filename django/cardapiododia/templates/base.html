@@ -13,7 +13,7 @@
 	</head>
 	
     <body data-spy="scroll" data-target=".bs-docs-sidebar">
-		
+		<input type="hidden" id="menuId" value="{{ menuId }}"/>
 		<div class="navbar navbar-fixed-top">
 	      <div class="navbar-inner">
 	        <div class="container">
@@ -24,9 +24,9 @@
 	          </a>
 	          <a class="brand" href="#">Cardapio do dia</a>
 	          <div class="nav-collapse">
-	            <ul class="nav">
-	              <li class="active"><a href="">Home</a></li>
-	              <li><a href="admin">Votacao</a></li>
+	            <ul id="menu-superior" class="nav">
+	              <li><a href="{% url url_home %}">Home</a></li>
+	              <li><a href="{% url url_criar_votacao %}">Votacao</a></li>
                   <li><a href="/admin/votacao/restaurante/">Restaurantes</a></li>
 	              <li><a id="getConteudoSobreAjax" href="/{% url url_sobre %}">Sobre</a></li>
 	            </ul>
