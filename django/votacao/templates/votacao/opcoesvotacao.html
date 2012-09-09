@@ -7,17 +7,30 @@
     <section id="global">
 
         <div class="page-header">
-             <h2>{{ votacao.data }}</h2>
-             <h2>{{ votacao.nome }}</h2>
-             <h2>{{ votacao.dia }}</h2>
+            <h2>{{ votacao.nome }}</h2>
+            <h4>{{ votacao.dataDoAlmoco }}</h4>
+            <h6><a href="{% url url_opcoes_votacao votacao.id %}">Compartilhe esta URL para votação</a></h6> 
         </div>
         
-      {% for cardapio in cardapio_list %}
-         <li>{{cardapio.restaurante}} - {{cardapio.dia}}</li>
-         <img height="100" src="{{ MEDIA_URL }}{{ cardapio.cardapioDia }}" alt="" />
-         <img height="100" src="{{ MEDIA_URL }}{{ cardapio.restaurante.cardapioGeral }}" alt="" />
-      {% endfor %}
+        <table align="center">
+         {% for cardapio in cardapio_list %}
+              <tr>
+                 <td colspan="3"><h2>{{cardapio.restaurante}}</h2></td>
+              </tr>
+              <tr>
+                <td><img width="120" src="{{ MEDIA_URL }}{{ cardapio.restaurante.logotipo }}" class="img-rounded"></td>
+                <td><img width="540" src="{{ MEDIA_URL }}{{ cardapio.restaurante.cardapioGeral }}" class="img-polaroid"></td>
+                <td>
+                    <form>
+                        <input type="text" class="input-small" placeholder="Seu nome...">
+                        <p><button type="submit" class="btn btn-primary">Votar</button></p>
+                    </form>    
 
+                </td>
+              </tr>
+         {% endfor %}
+       </table>
+ 
     </section>	
 
 
