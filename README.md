@@ -3,6 +3,12 @@ Cardapio do dia
 
 Uma lugar para escolher onde almoçar conforme o dia da semana.
 
+Gostou do projeto
+------------------
+Marque o projeto: https://github.com/huogerac/cardapiododia/star
+ou faça um fork: https://github.com/huogerac/cardapiododia/fork_select
+
+
 Contribuindo com o projeto
 --------------------------
 É necessário Python 2.7
