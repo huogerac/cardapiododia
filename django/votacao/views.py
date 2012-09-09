@@ -5,10 +5,11 @@ from django import forms
 from django.http import HttpResponseRedirect, HttpResponse
 from django.forms.widgets import HiddenInput
 from django.shortcuts import render, render_to_response, get_object_or_404
+from django.views.generic import ListView
 
 from datetime import date, datetime, time
 
-from .models import Votacao, Cardapio
+from .models import Votacao, Cardapio, Voto, Restaurante
 from .forms import VotacaoModelForm
 
 def home(request):
@@ -49,4 +50,20 @@ def opcoes_votacao(request, id_votacao):
 	cardapios = Cardapio.objects.filter(dia=votacao.diaDaSemana)
 	return render(request, 'votacao/opcoesvotacao.html', {'votacao': votacao, 'cardapio_list': cardapios, 'menuId':menuId})
     
+def novo_voto(request, id_votacao):
+    votacao_form = get_object_or_404(Votacao, pk=id_votacao)
+    restaurante_id = request.POST.get('id_restaurante', None)
+    restaurante_form = get_object_or_404(Restaurante, pk=restaurante_id)
+    nome_form = request.POST.get('nome', '')
+    
+    voto = Voto(nome=nome_form, restaurante=restaurante_form, votacao=votacao_form)
+    voto.save()
+    return HttpResponseRedirect('/votacao/resumo/' + str(votacao_form.id))
+    
+class VotoListView(ListView):
+    template_name='votacao/resumovotacao.html'
+    
+    def get_queryset(self):
+        self.votacao = get_object_or_404(Votacao, pk=self.args[0])
+        return Voto.objects.filter(votacao=self.votacao).order_by('restaurante')
     

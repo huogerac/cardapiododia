@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block chamada %}VOTACAO{% endblock %}
+
+{% block corpo %}
+
+    <section id="global">
+        
+        <table class="table table-striped">
+            <caption>Votações</caption>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Restaurante</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for voto in object_list %}
+                <tr>
+                    <td>{{ voto.nome }}</td>
+                    <td>{{voto.restaurante}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+ 
+    </section>	
+
+
+{% endblock corpo %}
+
+{% block javascript %}
+{% endblock javascript %}

@@ -21,11 +21,11 @@
                 <td><img width="120" src="{{ MEDIA_URL }}{{ cardapio.restaurante.logotipo }}" class="img-rounded"></td>
                 <td><img width="540" src="{{ MEDIA_URL }}{{ cardapio.restaurante.cardapioGeral }}" class="img-polaroid"></td>
                 <td>
-                    <form>
-                        <input type="text" class="input-small" placeholder="Seu nome...">
+                    <form action="{% url url_novo_voto votacao.id %}" method="post">{% csrf_token %}
+                        <input type="hidden" name="id_restaurante" value="{{ cardapio.restaurante.id }}">
+                        <input type="text" name="nome" class="input-small" placeholder="Seu nome...">
                         <p><button type="submit" class="btn btn-primary">Votar</button></p>
-                    </form>    
-
+                    </form>
                 </td>
               </tr>
          {% endfor %}
