@@ -5,7 +5,7 @@
     "fields": {
       "restaurante": 1, 
       "cardapioDia": "cardapio/feijaonorte_seg.jpg", 
-      "dia": "segunda"
+      "dia": "Monday"
     }
   }, 
   {
@@ -14,7 +14,7 @@
     "fields": {
       "restaurante": 1, 
       "cardapioDia": "cardapio/feijaonorte_ter.jpg", 
-      "dia": "terca"
+      "dia": "Tuesday"
     }
   }, 
   {
@@ -23,7 +23,7 @@
     "fields": {
       "restaurante": 1, 
       "cardapioDia": "cardapio/feijaonorte_qua.jpg", 
-      "dia": "quarta"
+      "dia": "Wednesday"
     }
   }, 
   {
@@ -32,7 +32,7 @@
     "fields": {
       "restaurante": 1, 
       "cardapioDia": "cardapio/feijaonorte_qui.jpg", 
-      "dia": "quinta"
+      "dia": "Thursday"
     }
   }, 
   {
@@ -41,7 +41,7 @@
     "fields": {
       "restaurante": 1, 
       "cardapioDia": "cardapio/feijaonorte_sex.jpg", 
-      "dia": "sexta"
+      "dia": "Friday"
     }
   }
 ]
