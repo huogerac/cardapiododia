@@ -30,6 +30,10 @@
 {% endblock corpo %}
 
 {% block javascript %}
-
+<script type="text/javascript">
+$(function(){
+	$("#id_dataDoAlmoco").datepicker({format: 'dd/mm/yyyy'});
+})
+</script>
 
 {% endblock javascript %}
