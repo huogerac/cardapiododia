@@ -11,8 +11,8 @@
 		<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css'%}" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-responsive.min.css'%}" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/datepicker.css'%}" />
-        
-        
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-popover.css'%}" />
+
 	</head>
 	
     <body data-spy="scroll" data-target=".bs-docs-sidebar">
@@ -31,7 +31,7 @@
 	              <li><a href="{% url url_home %}">Home</a></li>
 	              <li><a href="{% url url_criar_votacao %}">Votacao</a></li>
                   <li><a href="/admin/votacao/restaurante/">Restaurantes</a></li>
-	              <li><a id="getConteudoSobreAjax" href="/{% url url_sobre %}">Sobre</a></li>
+	              <li><a href="{% url url_sobre %}">Sobre</a></li>
 	            </ul>
 	          </div><!--/.nav-collapse -->
 	        </div>

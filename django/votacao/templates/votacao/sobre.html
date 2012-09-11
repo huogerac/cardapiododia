@@ -1,28 +1,100 @@
+{% extends 'base.html' %}
 {% load static %}
-<div id="sobre" class="modal hide fade">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		<table>
-			<tr>
-				<td><img src="{% static 'img/gf.jpg' %}" width="50" height="70" /></td>
-				<td>
-					<h3>Cardápio do Dia</h3>
-					<h4>Versão 1.0</h4>
-				</td>
-			</tr>
-		</table>
-	</div>
-	<div class="modal-body">
-		<p>Desenvolvido por: Roger Camargo, Guilherme Gambeti e Rogério Avelino.</p>
-        <h3>Gostou do projeto</h3>
-        <p><a href="https://github.com/huogerac/cardapiododia/star">Siga</a>
-           ou faça um <a href="https://github.com/huogerac/cardapiododia/fork_select">fork</a> do projeto no github.
-        </p>
-        <h3>Colabore com o projeto:</h3>
-        <p>Reportar <a href="https://github.com/huogerac/cardapiododia/issues?labels=question%2Cwontfix%2CIdeia%2CBug&page=1&state=open">bugs</a></p>
-		<p>Sugestões ou novas <a href="https://github.com/huogerac/cardapiododia/issues?labels=question%2Cwontfix%2CBug%2CIdeia&page=1&state=open">ideias</a></p>
-	</div>
-	<div class="modal-footer">
-		<a id="removeConteudoSobre" href="#" class="btn">Fechar</a>
-	</div>
-</div>
+
+{% block chamada %}VOTACAO{% endblock %}
+
+{% block corpo %}
+
+    <div class="row">
+      <div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav">
+          <li><a href="#contexto"><i class="icon-chevron-right"></i> Contexto</a></li>
+          <li><a href="#cardapio"><i class="icon-chevron-right"></i> Cardápio do dia</a></li>
+          <li><a href="#contribuindo"><i class="icon-chevron-right"></i> Contribuindo</a></li>
+          <li><a href="#creditos"><i class="icon-chevron-right"></i> Créditos</a></li>
+        </ul>
+      </div>
+      
+      <div class="span9">
+        
+        <section id="contexto">
+            
+            <div class="page-header">
+                <h1>Contexto</h1>
+            </div>
+
+            <p>Ao sair para almoçar, temos que entrar na discução de <strong>onde ir</strong>.</p>
+            <img src="{% static 'img/cardapiododia_sobre1.png' %}" width="380" /> 
+          
+            <p>Varias opções acabam surgindo, alguns gostam de um determinado local, outros não...</p>
+            <img src="{% static 'img/cardapiododia_sobre2.png' %}" width="380" />
+            
+            <p>E até decidir por um local onde todos concordam, acaba-se levando um bom tempo!</p>
+            <img src="{% static 'img/cardapiododia_sobre3.png' %}" width="380" />
+            
+            <p>Para piorar a situação, sempre tem alguém que não gosta da opção escolhida</p>
+            <img src="{% static 'img/cardapiododia_sobre4.png' %}" width="280" />            
+            <br/><br/><br/><br/>
+        </section> 
+        
+
+        <section id="cardapio">
+          <div class="page-header">
+            <h1>Cardápio do dia</h1>
+          </div>
+
+          <p>Para diminuir o tempo perdido com a discução de onde ir almoçar, o cardápio do dia proporciona
+             uma votação simples e antecipada. Onde é possível ver as opções de cardápios <small>(e preços)</small>
+             dos restaurantes conforme o dia da semana.</p>
+             
+          <img src="{% static 'img/cardapiododia_sobre5.png' %}" width="280" />
+          
+          <p>E momentos antes do horário do almoço, é possível saber onde foi o local mais votado, e permitindo quem
+             não gostou da opção, não participar do almoço naquele dia.</p>
+             
+          <img src="{% static 'img/cardapiododia_sobre6.png' %}" width="280" />
+          <br/><br/><br/><br/>
+        </section>
+        
+        
+        <section id="contribuindo">
+          <div class="page-header">
+            <h1>Contribuindo <small>com o Cardápio do dia</small></h1>
+          </div>
+
+          <h4>Gostou do projeto?</h4>
+
+            <p><a href="https://github.com/huogerac/cardapiododia/star">Marque </a>
+               ou faça um <a href="https://github.com/huogerac/cardapiododia/fork_select">fork</a> do projeto no github.
+            </p>
+        
+          <h4>Colabore com o projeto:</h4>
+          <p>Reportar           <a href="https://github.com/huogerac/cardapiododia/issues?labels=question%2CBug&page=1&state=open">bugs</a></p>
+		  <p>Sugestões ou novas <a href="https://github.com/huogerac/cardapiododia/issues?labels=question%2CIdeia&page=1&state=open">ideias</a></p>
+          <br/><br/><br/><br/>
+        </section>
+        
+        <section id="creditos">
+          <div class="page-header">
+            <h1>Créditos</h1>
+          </div>
+
+          <p>Roger Camargo</p>
+          <p>Guilherme Gambeti</p>
+          <p>Rogério Avelino</p>
+          <br/><br/><br/><br/>
+            
+        </section>
+       
+        
+        
+  
+
+
+
+
+{% endblock corpo %}
+
+{% block javascript %}
+
+{% endblock javascript %}
