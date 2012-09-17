@@ -12,8 +12,17 @@
         </div>
         
         <form action="" method="post"> {% csrf_token %}
-
-            {{ form }}
+	
+			<label for="id_nome">Nome:</label>
+			{{ form.nome }}
+			
+			<label for="id_dataDoAlmoco">Datadoalmoco:</label>
+			<div>
+				{{ form.dataDoAlmoco }} <input type="text" id="id_dataDoAlmoco_hour" />
+			</div>
+			{{ form.diaDaSemana }}
+			{{ form.encerrada }}
+			
             
             <div class="form-actions">
                 <button type="submit" class="btn btn-primary">Criar votação</button>
@@ -30,10 +39,5 @@
 {% endblock corpo %}
 
 {% block javascript %}
-<script type="text/javascript">
-$(function(){
-	$("#id_dataDoAlmoco").datepicker({format: 'dd/mm/yyyy'});
-})
-</script>
 
 {% endblock javascript %}

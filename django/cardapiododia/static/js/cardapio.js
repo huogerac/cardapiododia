@@ -1,6 +1,7 @@
 $(function(){
 	//getConteudoSobreAjax();
 	selecionaMenuSuperior();
+	setFieldHourDatepicker();
 });
 
 function getConteudoSobreAjax(){
@@ -20,4 +21,20 @@ function getConteudoSobreAjax(){
 function selecionaMenuSuperior(){
 	var menuId = $('#menuId').val();
 	$('#menu-superior li').removeClass().eq(menuId).addClass('active');
+}
+
+function setFieldHourDatepicker(){
+	$('input').each(function(i,obj){
+		if ($(obj).attr('data-datepicker') != undefined){
+			
+			var idObj = $(obj).attr('id');
+			
+			var regexp = /^(\d{4,4})-(\d{2,2})-(\d{2,2})(.+)$/;
+			
+			if (data = $(obj).val().match(regexp)){
+				$('#' +idObj + '_hour').val(data[4]);
+				$(obj).val(data[3] + "/" + data[2] + "/" + data[1]);
+			}	
+		}	
+	});
 }
