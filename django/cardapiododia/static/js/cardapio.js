@@ -29,7 +29,7 @@ function setFieldHourDatepicker(){
 			
 			var idObj = $(obj).attr('id');
 			
-			var regexp = /^(\d{4,4})-(\d{2,2})-(\d{2,2})(.+)$/;
+			var regexp = /^(\d{4})-(\d{2})-(\d{2}) (.+)$/;
 			
 			if (data = $(obj).val().match(regexp)){
 				$('#' +idObj + '_hour').val(data[4]);

@@ -251,7 +251,7 @@
     , parse: function(s) {
         // Parse a partial RFC 3339 string into a Date.
         var m;
-        if ((m = s.match(/^(\d{4,4})-(\d{2,2})-(\d{2,2})(.+)$/))) {
+        if ((m = s.match(/^(\d{4})-(\d{2})-(\d{2})(.+)$/))) {
           return new Date(m[3], m[1] - 1, m[2]);
         } else {
           return null;
