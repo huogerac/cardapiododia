@@ -10,15 +10,15 @@
             <caption>Votações</caption>
             <thead>
                 <tr>
+					<th>Restaurante</th>
                     <th>Nome</th>
-                    <th>Restaurante</th>
                 </tr>
             </thead>
             <tbody>
             {% for voto in object_list %}
                 <tr>
-                    <td>{{ voto.nome }}</td>
-                    <td>{{voto.restaurante}}</td>
+					<td>{{ voto.restaurante}}</td>
+                    <td>{{ voto.votos }}</td>
                 </tr>
             {% endfor %}
             </tbody>

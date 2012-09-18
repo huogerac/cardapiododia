@@ -7,6 +7,8 @@ from django.forms.widgets import HiddenInput
 from django.shortcuts import render, render_to_response, get_object_or_404
 from django.views.generic import ListView
 
+from django.db.models import Count
+
 from datetime import date, datetime, time
 
 from .models import Votacao, Cardapio, Voto, Restaurante
@@ -65,5 +67,14 @@ class VotoListView(ListView):
     
     def get_queryset(self):
         self.votacao = get_object_or_404(Votacao, pk=self.args[0])
-        return Voto.objects.filter(votacao=self.votacao).order_by('restaurante')
+        votacoes = Voto.objects.filter(votacao=self.votacao).values('restaurante').annotate(dcount=Count('restaurante')).order_by('-dcount')
+
+		#TODO: como fazer o ORM do Django fazer JOIN diretamente de modo a nao gerar 1 select para cada item da listagem
+        result = []
+        for voto in votacoes:
+			id_restaurante = voto['restaurante']
+			restaurante_db = get_object_or_404(Restaurante, pk=id_restaurante)
+			result.append( dict(restaurante=restaurante_db, votos=voto['dcount']) )
+        
+        return result
     
