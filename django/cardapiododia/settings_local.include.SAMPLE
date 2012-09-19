@@ -1,0 +1,21 @@
+from settings import *
+
+import os
+
+EMAIL_HOST_USER = 'gmailuser'
+EMAIL_HOST_PASSWORD = 'gmailpassword'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',  # Utilize sqlite3 e um NAME para não utilizar o postgres
+        'NAME': 'cardapiododia',						     # deixar os demais campos em branco
+        'USER': 'postgres',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
