@@ -14,6 +14,14 @@
         <p>Chega de perder tempo para decidir onde almoçar</p>
         <p><a href="{% url url_criar_votacao %}" class="btn btn-primary btn-large">Criar Votação</a></p>
         <img src="{% static 'img/cardapiododia_mapa.jpg'%}">
+        
+        <div id="votacoes_corrente">
+        
+        
+			{% for votacao in listVotacao %}
+				<a href="/votacao/{{ votacao.id }}">{{ votacao.nome }}</a>
+			{% endfor %}
+        </div>
     </div>
 	
 {% endblock corpo %}
