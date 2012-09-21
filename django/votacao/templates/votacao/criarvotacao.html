@@ -39,5 +39,13 @@
 {% endblock corpo %}
 
 {% block javascript %}
+<script type="text/javascript">
+	$(function(){
+		$("form").submit(function(){
+			var inpDate = $("#id_dataDoAlmoco");
+			inpDate.val(inpDate.val().trim() + ' ' + $("#id_dataDoAlmoco_hour").val().trim());
+		});
+	});
+</script>
 
 {% endblock javascript %}
