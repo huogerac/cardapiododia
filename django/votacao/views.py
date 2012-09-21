@@ -9,7 +9,7 @@ from django.views.generic import ListView
 
 from django.db.models import Count
 
-from datetime import date, datetime, time, timedelta
+from datetime import date, datetime, time
 
 from .models import Votacao, Cardapio, Voto, Restaurante
 from .forms import VotacaoModelForm
@@ -17,9 +17,7 @@ from .forms import VotacaoModelForm
 def home(request):
 	menuId = 0
 	template_name = 'votacao/home.html'
-	dataInicio = datetime.combine(date.today(),time(0, 0, 0))
-	dataFim = datetime.combine(date.today(),time(23, 59, 59))
-	listVotacao = Votacao.objects.filter(data__range=(dataInicio, dataFim))[:10]
+	listVotacao = Votacao.objects.filter(data__gte=date.today())[:10]
 	
 	return render(request, template_name, {'menuId':menuId, 'listVotacao':listVotacao })
 

@@ -16,10 +16,11 @@
         <img src="{% static 'img/cardapiododia_mapa.jpg'%}">
         
         <div id="votacoes_corrente">
-        
+			
+			<h3>Votações em Andamento</h2>
         
 			{% for votacao in listVotacao %}
-				<a href="/votacao/{{ votacao.id }}">{{ votacao.nome }}</a>
+				<a href="/votacao/{{ votacao.id }}">{{ votacao.nome }} | </a>
 			{% endfor %}
         </div>
     </div>
