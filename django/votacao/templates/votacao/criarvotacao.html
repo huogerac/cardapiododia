@@ -13,13 +13,17 @@
         
         <form action="" method="post"> {% csrf_token %}
 	
-			<label for="id_nome">Nome:</label>
+			{{ form.nome.label_tag }}
 			{{ form.nome }}
+			<span class="error_forms">{{ form.nome.errors }}</span>
 			
-			<label for="id_dataDoAlmoco">Datadoalmoco:</label>
+			{{ form.dataDoAlmoco.label_tag }}
 			<div>
+				
 				{{ form.dataDoAlmoco }} <input type="text" id="id_dataDoAlmoco_hour" />
+				<span class="error_forms">{{ form.dataDoAlmoco.errors }}</span>
 			</div>
+		
 			{{ form.diaDaSemana }}
 			{{ form.encerrada }}
             

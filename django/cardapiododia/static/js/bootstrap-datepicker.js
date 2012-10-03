@@ -253,6 +253,8 @@
         var m;
         if ((m = s.match(/^(\d{4})-(\d{2})-(\d{2})(.+)$/))) {
           return new Date(m[1], m[2] - 1, m[3]);
+        } else if ((m = s.match(/^(\d{2})\/(\d{2})\/(\d{4})(.+)$/))) {
+			return new Date(m[3], m[2] - 1, m[1]);
         } else {
           return null;
         }

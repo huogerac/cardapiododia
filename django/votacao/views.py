@@ -39,13 +39,17 @@ def criar_votacao(request):
 	else:
 
 		hoje = date.today()
-		meiodia = datetime.combine(hoje, time(12, 00)) 
+		meiodia = datetime.combine(hoje, time(12, 00))
 		nova_votacao = Votacao(dataDoAlmoco=meiodia)
 		form = VotacaoModelForm(instance=nova_votacao)
 
+	
 	form.fields['encerrada'].widget = HiddenInput()
 	form.fields['diaDaSemana'].widget = HiddenInput()
 	payload = {'form':form, 'menuId':menuId}
+	print '-------------------->'
+	print form
+	print '-------------------->'
 	return render(request, 'votacao/criarvotacao.html', payload) 
 
 def opcoes_votacao(request, id_votacao):

@@ -20,5 +20,28 @@ class VotacaoModelForm(ModelForm):
 		""" atribui o diaDaSemana
 			conforme o dataDoAlmoco especificado
 		"""
+		
+		if 'dataDoAlmoco' not in self.cleaned_data:
+			raise forms.ValidationError('É necessario preencher a data')
+		
 		dado = self.cleaned_data['dataDoAlmoco']
+		
 		return dado.strftime('%A')
+		
+	#def clean(self):
+	#	dataDoAlmoco = self.cleaned_data.get('dataDoAlmoco')
+	#	nome = self.cleaned_data.get('nome')
+		
+		#print '=============>', dataDoAlmoco
+		#if dataDoAlmoco is None:
+	#		raise forms.ValidationError('É necessario preencher a data')
+			
+	#	if nome is not None:
+	#		raise forms.ValidationError('É necessario preencher nome')
+			
+		
+			
+	#	return self.cleaned_data
+			
+		
+		

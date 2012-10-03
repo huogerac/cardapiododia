@@ -27,13 +27,25 @@ function setFieldHourDatepicker(){
 	$('input').each(function(i,obj){
 		if ($(obj).attr('data-datepicker') != undefined){
 			
+			$(obj).bind('keyup',function(){
+				$(this).val($(this).val().replace(/[^\d\/]/g,"").substr(0,10));
+			});
+			
 			var idObj = $(obj).attr('id');
 			
-			var regexp = /^(\d{4})-(\d{2})-(\d{2}) (.+)$/;
+			$('#' +idObj + '_hour').bind('keyup',function(){
+				$(this).val($(this).val().replace(/[^\d\:]/g,"").substr(0,8));
+			});
 			
-			if (data = $(obj).val().match(regexp)){
-				$('#' +idObj + '_hour').val(data[4]);
-				$(obj).val(data[3] + "/" + data[2] + "/" + data[1]);
+			var regexp1 = /^(\d{4})-(\d{2})-(\d{2}) (.+)$/;
+			var regexp2 = /^(\d{2})\/(\d{2})\/(\d{4}) (.+)$/;
+			
+			if (data = $(obj).val().match(regexp1)){
+				$('#' +idObj + '_hour').val(data[4].replace(/[^\d\:]/g,""));
+				$(obj).val(data[3] + "/" + data[2] + "/" + data[1].replace(/[^\d\/]/g,""));
+			} else if (data = $(obj).val().match(regexp2)){
+				$('#' +idObj + '_hour').val(data[4].replace(/[^\d\:]/g,""));
+				$(obj).val(data[1] + "/" + data[2] + "/" + data[3].replace(/[^\d\/]/g,""));
 			}	
 		}	
 	});
