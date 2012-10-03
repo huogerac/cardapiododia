@@ -9,8 +9,9 @@
         <div class="page-header">
             <h2>{{ votacao.nome }}</h2>
             <h4>{{ votacao.dataDoAlmoco }}</h4>
-            <h6><a href="{% url url_opcoes_votacao votacao.id %}">Compartilhe esta URL para votação</a></h6> 
+            <h6><a href="{% url url_opcoes_votacao votacao.id %}">Compartilhe esta URL para votação</a></h6>
         </div>
+        
         
         <table align="center">
          {% for cardapio in cardapio_list %}
@@ -30,6 +31,10 @@
               </tr>
          {% endfor %}
        </table>
+       
+		<div style="text-align:right;margin-top:80px;">
+			<a href="{% url url_votacao_resumo votacao.id %}" class="btn btn-primary">Resumo da votação</a>
+		</div>
  
     </section>	
 
